@@ -2,7 +2,7 @@ import { ArrowRight, Search } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <div className="relative w-full min-h-[1000px] bg-gradient-to-br from-blue-600 via-cyan-500 to-blue-400 overflow-hidden">
+    <div className="relative w-full min-h-[970px] bg-gradient-to-br from-blue-600 via-cyan-500 to-blue-400 overflow-hidden">
       {/* Background Decor (Optional glow) */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
 
@@ -10,9 +10,9 @@ export default function Hero() {
         {/* Left Content */}
         <div className="space-y-6 text-white">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-black/30 backdrop-blur-sm px-4 py-1.5 rounded-full border border-white/10 w-fit">
+          <div className="inline-flex items-center gap-2 bg-black/50 backdrop-blur-sm px-4 py-1.5 rounded-full w-fit">
             <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-            <span className="text-xs font-medium uppercase tracking-wider">Powered by AI</span>
+            <span className="text-xs  tracking-wider">Sessions 2026 · Early-bird registration now open</span>
           </div>
 
           {/* Headline */}
@@ -51,7 +51,7 @@ export default function Hero() {
             {/* Search Bar Header */}
             <div className="flex items-center gap-3 border-b border-gray-100 pb-4 mb-4">
               <Search className="text-gray-400" size={20} />
-              <div className="h-4 w-32 bg-gray-100 rounded-full"></div>
+              <div className="h-4 w-32 bg-gray-300 rounded-full animate-pulse"></div>
             </div>
 
             <h3 className="font-bold text-gray-800 mb-4">Build Projects</h3>
@@ -60,37 +60,39 @@ export default function Hero() {
             <div className="grid grid-cols-2 gap-3">
               {/* Project Item 1 */}
               <div className="bg-white border border-gray-100 p-2.5 rounded-lg flex items-center gap-3 shadow-sm hover:shadow-md transition-shadow">
-                <div className="w-10 h-10 bg-gray-200 rounded-md shrink-0"></div>
+                {/* Added animate-pulse to thumbnail */}
+                <div className="w-10 h-10 bg-gray-300 rounded-md shrink-0 animate-pulse"></div>
                 <div className="w-full space-y-1.5">
-                  <div className="h-2 w-full bg-[#5bb5c3] rounded-full"></div> {/* Teal Bar */}
-                  <div className="h-2 w-2/3 bg-gray-200 rounded-full"></div> {/* Gray Bar */}
+                  <div className="h-2 w-full bg-[#5bb5c3] rounded-full"></div>
+                  {/* Added animate-pulse to the grey text line */}
+                  <div className="h-2 w-2/3 bg-gray-300 rounded-full animate-pulse"></div>
                 </div>
               </div>
 
               {/* Project Item 2 */}
               <div className="bg-white border border-gray-100 p-2.5 rounded-lg flex items-center gap-3 shadow-sm hover:shadow-md transition-shadow">
-                <div className="w-10 h-10 bg-gray-200 rounded-md shrink-0"></div>
+                <div className="w-10 h-10 bg-gray-300 rounded-md shrink-0 animate-pulse"></div>
                 <div className="w-full space-y-1.5">
                   <div className="h-2 w-full bg-[#5bb5c3] rounded-full"></div>
-                  <div className="h-2 w-2/3 bg-gray-200 rounded-full"></div>
+                  <div className="h-2 w-2/3 bg-gray-300 rounded-full animate-pulse"></div>
                 </div>
               </div>
 
               {/* Project Item 3 */}
               <div className="bg-white border border-gray-100 p-2.5 rounded-lg flex items-center gap-3 shadow-sm hover:shadow-md transition-shadow">
-                <div className="w-10 h-10 bg-gray-200 rounded-md shrink-0"></div>
+                <div className="w-10 h-10 bg-gray-300 rounded-md shrink-0 animate-pulse"></div>
                 <div className="w-full space-y-1.5">
                   <div className="h-2 w-full bg-[#5bb5c3] rounded-full"></div>
-                  <div className="h-2 w-2/3 bg-gray-200 rounded-full"></div>
+                  <div className="h-2 w-2/3 bg-gray-300 rounded-full animate-pulse"></div>
                 </div>
               </div>
 
               {/* Project Item 4 */}
               <div className="bg-white border border-gray-100 p-2.5 rounded-lg flex items-center gap-3 shadow-sm hover:shadow-md transition-shadow">
-                <div className="w-10 h-10 bg-gray-200 rounded-md shrink-0"></div>
+                <div className="w-10 h-10 bg-gray-300 rounded-md shrink-0 animate-pulse"></div>
                 <div className="w-full space-y-1.5">
                   <div className="h-2 w-full bg-[#5bb5c3] rounded-full"></div>
-                  <div className="h-2 w-2/3 bg-gray-200 rounded-full"></div>
+                  <div className="h-2 w-2/3 bg-gray-300 rounded-full animate-pulse"></div>
                 </div>
               </div>
             </div>
