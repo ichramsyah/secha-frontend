@@ -13,7 +13,7 @@ const logos = [
 
 export default function Sponsor() {
   return (
-    <section className="py-12">
+    <section className="pt-12 pb-20">
       {/* CSS Animasi Custom */}
       <style>{`
         @keyframes colorCycle {

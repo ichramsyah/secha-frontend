@@ -5,7 +5,7 @@ export default function Hero() {
     <div className="relative w-full min-h-[970px] bg-gradient-to-br from-blue-600 via-cyan-500 to-blue-400 animate-gradient-bg overflow-hidden">
       {/* Defined Animations */}
       <style>{`
-        /* 1. Background Gradient Animation */
+        /* 1. Background Gradient Animation Only */
         @keyframes gradientMove {
           0% { background-position: 0% 50%; }
           50% { background-position: 100% 50%; }
@@ -15,16 +15,8 @@ export default function Hero() {
           background-size: 200% 200%;
           animation: gradientMove 6s ease infinite;
         }
-
-        /* 2. Wave Size Animation (Breathing Effect) */
-        @keyframes wavePulse {
-          0%, 100% { transform: scaleY(1); }
-          50% { transform: scaleY(1.15); } /* Grows 15% taller */
-        }
-        .animate-wave {
-          transform-origin: bottom; /* Anchor to the bottom edge */
-          animation: wavePulse 4s ease-in-out infinite;
-        }
+        
+        /* Wave animation removed */
       `}</style>
 
       {/* Background Decor (Optional glow) */}
@@ -36,7 +28,7 @@ export default function Hero() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-black/50 backdrop-blur-sm px-4 py-1.5 rounded-full w-fit">
             <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-            <span className="text-xs  tracking-wider">Sessions 2026 · Early-bird registration now open</span>
+            <span className="text-xs  tracking-wider">Sessions 2026</span>
           </div>
 
           {/* Headline */}
@@ -229,9 +221,9 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* ADDED 'animate-wave' class here */}
+      {/* The Wave Separator - Animation Class Removed */}
       <div className="absolute bottom-0 w-full leading-none z-0 -scale-y-100">
-        <svg className="relative block w-full h-16 md:h-32 animate-wave" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <svg className="relative block w-full h-16 md:h-32" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
           <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" fill="#ffffff"></path>
         </svg>
       </div>
