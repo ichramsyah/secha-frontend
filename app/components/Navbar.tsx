@@ -1,7 +1,7 @@
-'use client'; // Required for client-side interactivity (useState)
+'use client';
 
 import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
+import { ChevronRight, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 
 export default function Navbar() {
@@ -36,7 +36,11 @@ export default function Navbar() {
 
           {/* CTA Button */}
           <div className="hidden md:flex">
-            <button className="bg-white text-blue-600 px-6 py-2 rounded-full font-semibold hover:bg-blue-50 transition shadow-lg">Consult Now</button>
+            <button className="group flex items-center bg-white px-6 pr-4 py-1.5 rounded-full font-semibold   transition transform hover:scale-105 cursor-pointer ">
+              {/* Gradient Text Span */}
+              <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">Consult Now</span>
+              <ChevronRight className="ml-1 text-cyan-500 group-hover:translate-x-1 transition-transform" size={20} />
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
