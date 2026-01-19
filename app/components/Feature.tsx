@@ -190,7 +190,6 @@ const Feature = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
-    // Only run GSAP on Desktop
     const mm = gsap.matchMedia();
 
     mm.add('(min-width: 768px)', () => {
@@ -231,7 +230,7 @@ const Feature = () => {
           MOBILE VIEW (Original Layout)
           Hidden on Desktop
       --------------------- */}
-      <div className="md:hidden max-w-7xl mx-auto px-4 py-24 space-y-30">
+      <div className="md:hidden max-w-7xl mx-auto md:px-4 px-8 py-24 space-y-30">
         <div className="max-w-3xl mb-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
             Comprehensive solutions for <br />
@@ -266,27 +265,19 @@ const Feature = () => {
           DESKTOP VIEW (Pinned Layout)
           Hidden on Mobile
       --------------------- */}
-      <div className="hidden md:flex max-w-7xl mx-auto px-6 lg:px-8 py-10 relative">
+      <div className="hidden md:flex max-w-7xl mx-auto px-6 lg:px-8 py-0 relative border-2 border-dashed border-t-0 border-b-0 border-gray-200">
         {/* Left Column: Scrolling Text */}
         <div className="w-1/2 relative z-10">
-          <div className="mb-24 pt-20">
-            <h2 className="text-5xl font-bold text-gray-900 mb-6">
-              Comprehensive solutions for <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">modern businesses.</span>
-            </h2>
-            <p className="text-lg text-gray-500 max-w-md">Scroll down to explore how our core services can transform your idea into a market-ready product.</p>
-          </div>
-
-          <div className="space-y-[40vh] pb-[40vh]">
+          <div className="space-y-[80vh] pb-[10vh]">
             {' '}
             {/* Huge spacing for scroll trigger */}
             {features.map((feature) => (
-              <div key={feature.id} className="desktop-content-section min-h-[50vh] flex flex-col justify-center space-y-6 pr-12">
+              <div key={feature.id} className="desktop-content-section min-h-[100vh] flex flex-col justify-center space-y-6 pr-12">
                 <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${feature.color} w-fit`}>
                   {feature.icon}
                   {feature.category}
                 </div>
-                <h3 className="text-4xl font-bold text-gray-900 leading-tight">{feature.title}</h3>
+                <h3 className="text-5xl font-bold text-gray-900 leading-tight">{feature.title}</h3>
                 <p className="text-lg text-gray-500 leading-relaxed">{feature.description}</p>
                 <button className="group flex items-center gap-2 text-blue-600 font-bold hover:text-blue-700 transition-colors">
                   {feature.cta}
