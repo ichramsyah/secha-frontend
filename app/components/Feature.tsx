@@ -21,7 +21,7 @@ const features = [
     visual: (
       <div className="ui-bg relative w-full max-w-md bg-white rounded-xl shadow-2xl p-6 border border-gray-100 opacity-0 scale-95">
         <div className="flex gap-4 mb-6">
-          <div className="ui-header w-16 h-16 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold text-xl opacity-0 scale-0">Aa</div>
+          <div className="ui-header w-16 h-16 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 font-bold text-xl opacity-0 scale-0">Se</div>
           <div className="space-y-2">
             <div className="ui-header h-4 w-32 bg-gray-200 rounded opacity-0 -translate-x-4"></div>
             <div className="ui-header h-3 w-20 bg-gray-100 rounded opacity-0 -translate-x-4"></div>
@@ -304,7 +304,7 @@ const Feature = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="w-full bg-blue-50/30">
+    <div ref={containerRef} className="w-full bg-blue-50/50">
       {/* MOBILE VIEW (Original Layout) */}
       <div className="md:hidden max-w-7xl mx-auto md:px-4 px-8 py-24 space-y-30">
         <div className="max-w-3xl mb-12">
@@ -316,13 +316,13 @@ const Feature = () => {
         {features.map((feature) => (
           <div key={feature.id} className="flex flex-col gap-8">
             <div className="space-y-4">
-              <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${feature.color} w-fit`}>
-                {feature.icon}
-                {feature.category}
+              <div className="flex items-center">
+                <div className={`inline-flex items-center gap-2 px-2 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${feature.color} w-fit`}>{feature.icon}</div>
+                <h1 className="pl-2 font-black text-[15px] text-gray-600">{feature.category}</h1>
               </div>
               <h3 className="text-2xl font-bold text-gray-900">{feature.title}</h3>
               <p className="text-gray-500">{feature.description}</p>
-              <button className="flex items-center gap-2 text-blue-600 font-bold text-sm">
+              <button className="flex items-center gap-2 text-blue-600 font-bold text-sm mb-3">
                 {feature.cta} <ArrowRight size={16} />
               </button>
             </div>
@@ -350,10 +350,12 @@ const Feature = () => {
                 </div>
                 <h3 className="text-5xl font-bold text-gray-900 leading-tight">{feature.title}</h3>
                 <p className="text-lg text-gray-500 leading-relaxed">{feature.description}</p>
-                <button className="group flex items-center gap-2 text-blue-600 font-bold hover:text-blue-700 transition-colors">
-                  {feature.cta}
-                  <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                </button>
+                <div className="transition-colors">
+                  <button className={`group flex items-center gap-2 bg-gray-700 text-white px-5 py-1.5 rounded-full cursor-pointer text-[15px]`}>
+                    {feature.cta}
+                    <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </div>
               </div>
             ))}
           </div>
