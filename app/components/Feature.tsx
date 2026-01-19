@@ -18,7 +18,6 @@ const features = [
     cta: 'See Design Portfolio',
     icon: <Layout className="text-purple-600" />,
     color: 'bg-purple-100 text-purple-600',
-    // === VISUAL: UI/UX Wireframe ===
     visual: (
       <div className="ui-bg relative w-full max-w-md bg-white rounded-xl shadow-2xl p-6 border border-gray-100 opacity-0 scale-95">
         <div className="flex gap-4 mb-6">
@@ -50,7 +49,6 @@ const features = [
     cta: 'View Mobile Projects',
     icon: <Smartphone className="text-pink-600" />,
     color: 'bg-pink-100 text-pink-600',
-    // === VISUAL: Mobile Phone ===
     visual: (
       <div className="mobile-frame w-full max-w-xs mx-auto bg-gray-900 rounded-[2.5rem] border-[8px] border-gray-800 shadow-2xl overflow-hidden h-[400px] relative opacity-0 translate-y-10">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-gray-800 rounded-b-xl z-10"></div>
@@ -74,7 +72,7 @@ const features = [
             </div>
           </div>
           <div className="mobile-card bg-gray-50 h-32 rounded-xl border-dashed border-2 border-gray-200 flex items-center justify-center opacity-0 scale-90">
-            <span className="text-xs text-gray-400">Interactive Chart</span>
+            <span className="text-xs text-gray-400"></span>
           </div>
         </div>
       </div>
@@ -198,10 +196,7 @@ const Feature = () => {
       const sections = gsap.utils.toArray('.desktop-content-section') as Element[];
       const visuals = gsap.utils.toArray('.desktop-visual-item') as HTMLElement[];
 
-      // --- INITIAL SETUP ---
-      // 1. Hide all visuals initially
       gsap.set(visuals, { autoAlpha: 0, scale: 0.95 });
-      // 2. Make the FIRST visual visible immediately so there's no gap at the start
       if (visuals[0]) {
         gsap.set(visuals[0], { autoAlpha: 1, scale: 1 });
       }
@@ -209,42 +204,26 @@ const Feature = () => {
       sections.forEach((section: any, index) => {
         const visualContainer = visuals[index];
 
-        // ----------------------------------------------------
-        // 1. CROSSFADE VISIBILITY LOGIC (Fix for "Disappearing too quickly")
-        // ----------------------------------------------------
-        // Instead of hiding on leave, we animate the CURRENT one In,
-        // and the PREVIOUS one Out manually.
-
         ScrollTrigger.create({
           trigger: section,
-          start: 'top 60%', // Trigger slightly earlier for smoother transition
+          start: 'top 60%',
           end: 'bottom 60%',
 
-          // On Enter (Scrolling Down): Show Current, Hide Previous
           onEnter: () => {
-            // Show current
             gsap.to(visualContainer, { autoAlpha: 1, scale: 1, duration: 0.5, overwrite: 'auto' });
-            // Hide previous (if exists)
             if (index > 0) {
               gsap.to(visuals[index - 1], { autoAlpha: 0, scale: 0.95, duration: 0.5, overwrite: 'auto' });
             }
           },
 
-          // On Leave Back (Scrolling Up): Hide Current, Show Previous
           onLeaveBack: () => {
-            // Hide current
             gsap.to(visualContainer, { autoAlpha: 0, scale: 0.95, duration: 0.5, overwrite: 'auto' });
-            // Show previous (if exists)
             if (index > 0) {
               gsap.to(visuals[index - 1], { autoAlpha: 1, scale: 1, duration: 0.5, overwrite: 'auto' });
             }
           },
         });
 
-        // ----------------------------------------------------
-        // 2. DETAILED ANIMATIONS (Scrub Logic - Unchanged)
-        // ----------------------------------------------------
-        // This triggers the internal animations (dots, lines, graphs)
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: section,
@@ -365,9 +344,9 @@ const Feature = () => {
           <div className="space-y-[80vh] pb-[10vh]">
             {features.map((feature) => (
               <div key={feature.id} className="desktop-content-section min-h-[100vh] flex flex-col justify-center space-y-6 pr-12">
-                <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${feature.color} w-fit`}>
-                  {feature.icon}
-                  {feature.category}
+                <div className="flex items-center">
+                  <div className={`inline-flex items-center gap-2 px-2 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${feature.color} w-fit`}>{feature.icon}</div>
+                  <h1 className="pl-2 font-black text-lg text-gray-600">{feature.category}</h1>
                 </div>
                 <h3 className="text-5xl font-bold text-gray-900 leading-tight">{feature.title}</h3>
                 <p className="text-lg text-gray-500 leading-relaxed">{feature.description}</p>
